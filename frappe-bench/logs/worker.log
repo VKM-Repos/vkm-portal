@@ -1,0 +1,110 @@
+2025-11-04 08:10:25,946 Worker rq:worker:9daefd651b2f495488e073b32697882a started with PID 63560, version 2.4.0
+2025-11-04 08:10:25,946 Subscribing to channel rq:pubsub:9daefd651b2f495488e073b32697882a
+2025-11-04 08:10:25,948 *** Listening on Users-vkm-Documents-Work-github-frappe-bench:short, Users-vkm-Documents-Work-github-frappe-bench:default, Users-vkm-Documents-Work-github-frappe-bench:long...
+2025-11-04 08:10:25,949 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:short
+2025-11-04 08:10:25,952 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:default
+2025-11-04 08:10:25,955 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:long
+2025-11-04 08:17:52,024 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User genkhal25@gmail.com>, 'ignore_mandatory': True..., method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') (mysite.local||6f881640-55c8-41b5-b837-9d938ccbf73e)
+2025-11-04 08:17:55,774 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User genkhal25@gmail.com>, 'ignore_mandatory': True..., method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') job in 0:00:02.869475s on worker 9daefd651b2f495488e073b32697882a
+2025-11-04 08:17:55,775 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||6f881640-55c8-41b5-b837-9d938ccbf73e)
+2025-11-04 08:17:55,776 Result is kept for 600 seconds
+2025-11-04 08:17:55,805 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'genkhal25@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='mysite.local', user='Administrator') (mysite.local||502f3f7d-6bc9-450a-a71b-65cb1b415062)
+2025-11-04 08:17:56,852 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'genkhal25@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='mysite.local', user='Administrator') job in 0:00:00.984261s on worker 9daefd651b2f495488e073b32697882a
+2025-11-04 08:17:56,853 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||502f3f7d-6bc9-450a-a71b-65cb1b415062)
+2025-11-04 08:17:56,853 Result is kept for 600 seconds
+2025-11-04 08:19:46,455 Worker 9daefd651b2f495488e073b32697882a [PID 63560]: warm shut down requested
+Traceback (most recent call last):
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/connection.py", line 385, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/retry.py", line 87, in call_with_retry
+    return do()
+           ^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/connection.py", line 386, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/connection.py", line 797, in _connect
+    raise err
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/connection.py", line 781, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/vkm/Documents/Work/github/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 48, in invoke
+    return super().invoke(ctx)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/click/core.py", line 1830, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/apps/frappe/frappe/commands/scheduler.py", line 206, in start_worker
+    start_worker(
+  File "/Users/vkm/Documents/Work/github/frappe-bench/apps/frappe/frappe/utils/background_jobs.py", line 352, in start_worker
+    worker.work(
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/rq/worker.py", line 646, in work
+    self.teardown()
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/rq/worker.py", line 1147, in teardown
+    self.register_death()
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/rq/worker.py", line 894, in register_death
+    p.execute()
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/client.py", line 1607, in execute
+    conn = self.connection_pool.get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/utils.py", line 191, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/connection.py", line 1530, in get_connection
+    connection.connect()
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/connection.py", line 379, in connect
+    self.connect_check_health(check_health=True)
+  File "/Users/vkm/Documents/Work/github/frappe-bench/env/lib/python3.11/site-packages/redis/connection.py", line 391, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 61 connecting to 127.0.0.1:11002. Connection refused.
+
+Error 61 connecting to 127.0.0.1:11002. Connection refused.
+2025-11-04 08:20:29,416 Worker rq:worker:588d47738ef74227996fd5008105928d started with PID 64771, version 2.4.0
+2025-11-04 08:20:29,416 Subscribing to channel rq:pubsub:588d47738ef74227996fd5008105928d
+2025-11-04 08:20:29,419 *** Listening on Users-vkm-Documents-Work-github-frappe-bench:short, Users-vkm-Documents-Work-github-frappe-bench:default, Users-vkm-Documents-Work-github-frappe-bench:long...
+2025-11-04 08:20:29,420 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:short
+2025-11-04 08:20:29,424 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:default
+2025-11-04 08:20:29,427 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:long
+2025-11-04 08:26:25,457 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') (mysite.local||ab35f383-d9e8-44da-b183-1404c5911260)
+2025-11-04 08:26:26,392 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') job in 0:00:00.072631s on worker 588d47738ef74227996fd5008105928d
+2025-11-04 08:26:26,393 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||ab35f383-d9e8-44da-b183-1404c5911260)
+2025-11-04 08:26:26,393 Result is kept for 600 seconds
+2025-11-04 08:29:09,014 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') (mysite.local||f589d341-52b4-4d59-bab6-495b930ce705)
+2025-11-04 08:29:10,535 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') job in 0:00:00.112402s on worker 588d47738ef74227996fd5008105928d
+2025-11-04 08:29:10,536 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||f589d341-52b4-4d59-bab6-495b930ce705)
+2025-11-04 08:29:10,536 Result is kept for 600 seconds
+2025-11-04 08:35:55,670 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:short
+2025-11-04 08:35:55,743 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:default
+2025-11-04 08:35:55,755 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:long
+2025-11-04 08:36:43,880 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User genkhal25@gmail.com>, 'ignore_mandatory': True..., method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') (mysite.local||742d5d18-fe28-4efa-916a-cea23bd6e1c6)
+2025-11-04 08:36:47,789 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User genkhal25@gmail.com>, 'ignore_mandatory': True..., method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') job in 0:00:02.617763s on worker 588d47738ef74227996fd5008105928d
+2025-11-04 08:36:47,790 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||742d5d18-fe28-4efa-916a-cea23bd6e1c6)
+2025-11-04 08:36:47,791 Result is kept for 600 seconds
+2025-11-04 08:36:47,807 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'genkhal25@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='mysite.local', user='Administrator') (mysite.local||9cad50aa-bd98-4b21-8bef-a8d7c05f6027)
+2025-11-04 08:36:48,822 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'genkhal25@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='mysite.local', user='Administrator') job in 0:00:00.997639s on worker 588d47738ef74227996fd5008105928d
+2025-11-04 08:36:48,823 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||9cad50aa-bd98-4b21-8bef-a8d7c05f6027)
+2025-11-04 08:36:48,824 Result is kept for 600 seconds
+2025-11-04 08:44:15,894 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') (mysite.local||5920fcc5-1969-4109-bec0-bc602dcf65c0)
+2025-11-04 08:44:18,266 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') job in 0:00:00.128724s on worker 588d47738ef74227996fd5008105928d
+2025-11-04 08:44:18,267 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||5920fcc5-1969-4109-bec0-bc602dcf65c0)
+2025-11-04 08:44:18,269 Result is kept for 600 seconds
+2025-11-04 08:51:03,372 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:short
+2025-11-04 08:51:03,403 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:default
+2025-11-04 08:51:03,411 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:long
+2025-11-04 09:01:14,670 Users-vkm-Documents-Work-github-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') (mysite.local||7c84a6dd-323d-4781-a6ea-ac6834dab82c)
+2025-11-04 09:01:16,017 Successfully completed frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: doctype=User Administrator>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='mysite.local', user='Administrator') job in 0:00:00.122051s on worker 588d47738ef74227996fd5008105928d
+2025-11-04 09:01:16,018 Users-vkm-Documents-Work-github-frappe-bench:default: Job OK (mysite.local||7c84a6dd-323d-4781-a6ea-ac6834dab82c)
+2025-11-04 09:01:16,019 Result is kept for 600 seconds
+2025-11-04 09:01:16,033 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:short
+2025-11-04 09:01:16,040 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:default
+2025-11-04 09:01:16,044 Cleaning registries for queue: Users-vkm-Documents-Work-github-frappe-bench:long

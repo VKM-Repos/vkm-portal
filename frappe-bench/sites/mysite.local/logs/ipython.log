@@ -1,0 +1,16 @@
+2025-11-04 08:44:40,292 INFO ipython === bench console session ===
+2025-11-04 08:44:40,297 INFO ipython import frappe
+frappe.sendmail(
+    recipients=["imamkhaleel2@gmail.com"], 
+    subject="ERPNext SMTP Test",
+    message="If you see this, your ERPNext email setup works!"
+)
+2025-11-04 08:44:40,298 INFO ipython === session end ===
+2025-11-04 08:46:21,247 INFO ipython === bench console session ===
+2025-11-04 08:46:21,251 INFO ipython import frappe
+frappe.sendmail(
+    recipients=["imamkhaleel2@gmail.com"], 
+    subject="ERPNext SMTP Test",
+    message="If you see this, your ERPNext email setup works!"
+)
+2025-11-04 08:46:21,252 INFO ipython === session end ===

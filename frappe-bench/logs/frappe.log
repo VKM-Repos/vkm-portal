@@ -1,0 +1,6 @@
+2025-11-04 08:29:09,899 ERROR frappe New Exception collected in error log
+Site: mysite.local
+Form Dict: {'user': 'Administrator', 'cmd': 'frappe.core.doctype.user.user.generate_keys'}
+2025-11-04 08:33:52,547 ERROR frappe New Exception collected in error log
+Site: mysite.local
+Form Dict: {'recipients': 'yourpersonal@yourdomain.com', 'subject': 'ERPNext Local API Email Test', 'content': '<p>Hello from ERPNext local API </p>', 'send_email': 1, 'cmd': 'frappe.core.doctype.communication.email.make'}
